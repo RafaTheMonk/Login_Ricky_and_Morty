@@ -1,0 +1,114 @@
+@font-face {
+    font-family: rickyMorty;
+    src: url("/font/Rick-and-Morty-Font/get_schwifty.ttf");
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: rickyMorty;
+    color: #04ADBF;
+    -webkit-text-stroke: 0.5px #93F205; 
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url("/image/wallpaperBody.png");
+    background-size: cover;
+    background-position: center;
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    background: transparent;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    z-index: 99;
+}
+.logo{
+    font-size: 2em;
+    user-select: none;
+}
+.navegação a{
+    position: relative;
+    font-size: 1.1em;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+.navegação a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: rgb(255, 255, 255);
+    border-radius: 5px;
+    animation: lsdBackground 2s infinite;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s;
+}
+.navegação a:hover::after{
+    transform: scaleX(1);
+    animation: lsdBackground 2s infinite;
+}
+.navegação .btn-login{
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 5px solid #ded881;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-left: 40px;
+    animation: LSD 2s infinite;
+    transition: transform 0.5s ease-in-out;
+}
+.navegação .btn-login:hover{
+    animation: lsdBackground 1s infinite;
+    border: none;
+    transform: scale(1.1);
+}
+
+@keyframes LSD {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    50% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+@keyframes lsdBackground {
+    0% {
+      background-color: red;
+      color: purple;
+    }
+    25% {
+      background-color: blue;
+      color: yellow;
+    }
+    50% {
+      background-color: green;
+      color: red;
+    }
+    75% {
+      background-color: yellow;
+      color: green;
+    }
+    100% {
+      background-color: purple;
+      color: blue;
+    }
+  }
