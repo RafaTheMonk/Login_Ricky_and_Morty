@@ -58,6 +58,7 @@ header{
     transition: transform 0.5s;
 }
 .navegação a:hover::after{
+    transform-origin: left;
     transform: scaleX(1);
     animation: lsdBackground 2s infinite;
 }
@@ -66,6 +67,7 @@ header{
     height: 50px;
     background: transparent;
     border: 5px solid #ded881;
+    outline: none;
     border-radius: 6px;
     cursor: pointer;
     font-size: 1.1em;
@@ -79,7 +81,7 @@ header{
     border: none;
     transform: scale(1.1);
 }
-.sanfona-login {
+.container {
     position: relative;
     width: 500px;
     height: 500px;
@@ -88,9 +90,9 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden; 
+    overflow: hidden;
 }
-.sanfona-login::before {
+.container::before {
     content: "";
     position: absolute;
     top: 0;
@@ -106,22 +108,33 @@ header{
     animation: girarBackground 10s linear infinite;
     z-index: -1;
 }
-.sanfona-login .caixa{
+
+.container .formulario-login{
     width: 100%;
     padding: 40px;
 }
-.caixa h2{
+.formulario-login h2{
     font-size: 2em;
     text-align: center;
 }
-.caixa-login{
+.container .formulario-login.entrada{
+    display: none;
+}
+.container .form-register.entrada{
+    position: absolute;
+    transform: translateX(400px);
+}
+.input{
     position: relative;
     width: 100%;
     height: 50px;
     border-bottom: 2px solid #162938;
     margin: 30px 0;
 }
-.caixa-login label{
+.input img{
+    width: 30px;
+}
+.input label{
     position: absolute;
     top: 50%;
     left: 5px;
@@ -129,13 +142,13 @@ header{
     font-size: 1em;
     font-weight: 500;
     pointer-events: none;
-    transition: .5s;
+    transition: 0.5s;
 }
-.caixa-login input:focus~label,
-.caixa-login input:valid~label{
+.input input:focus~label,
+.input input:valid~label{
     top: -5px;
 }
-.caixa-login input{
+.input input{
     width: 100%;
     height: 100%;
     background: transparent;
@@ -143,8 +156,9 @@ header{
     outline: none;
     font-size: 1em;
     font-weight: 600;
+    padding: 0 35px 0 5px;
 }
-.caixa-login .icon{
+.input .icon{
     position: absolute;
     right: 8px;
     font-size: 1.2em;
@@ -177,6 +191,7 @@ lembrar a:hover{
     outline: none;
     cursor: pointer;
     font-size: 1em;
+    font-weight: 500;
 }
 .btn:hover{
     animation: lsdBackground 1s infinite;
@@ -194,7 +209,7 @@ lembrar a:hover{
 .registro-login p a:hover{
     text-decoration: underline;
 }
-.icone-fechar{
+.icon-fechar{
     position: absolute;
     top: 0;
     right: 0;
@@ -203,11 +218,15 @@ lembrar a:hover{
     background: #93F205;
     animation: lsdBackground 2s infinite;
     font-size: 2em;
+    display: flex;
     justify-content: center;
     align-items: center;
     border-bottom-left-radius: 20px;
     cursor: pointer;
     z-index: 1;
+}
+.icon-fechar img{
+    width: 50px;
 }
 @keyframes LSD {
     0% {
