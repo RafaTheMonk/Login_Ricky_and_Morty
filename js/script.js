@@ -1,7 +1,11 @@
-const sanfona = document.querySelector('.sanfona-login');
-const linkLogin = document.querySelector('.link-login');
-const linkRegistro = document.querySelector('.link-register');
+const container = document.querySelector('.container');
+const Login = document.querySelector('.link-login');
+const Registro = document.querySelector('.link-registro');
 
-linkRegistro.addEventListener('click', ()=>{
-    sanfona.classList.add('active');
-})
+Registro.addEventListener('click', ()=>{
+    container.classList.add('active');
+});
+
+Login.addEventListener('click', ()=>{
+    container.classList.remove('active');
+});

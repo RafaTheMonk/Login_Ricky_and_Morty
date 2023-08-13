@@ -90,6 +90,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: height .2s ease;
     overflow: hidden;
 }
 .container::before {
@@ -108,21 +109,34 @@ header{
     animation: girarBackground 10s linear infinite;
     z-index: -1;
 }
-
+.container.active{
+    width: 500px;
+    height: 500px;
+}
 .container .formulario-login{
     width: 100%;
-    padding: 40px;
+    padding: 100px;
 }
 .formulario-login h2{
     font-size: 2em;
     text-align: center;
 }
 .container .formulario-login.entrada{
-    display: none;
+    transition: transform .18s ease;
+    transform: translateX(0);
 }
-.container .form-register.entrada{
+.container.active .formulario-login.entrada{
+    transition: none;
+    transform: translateX(-400px);
+}
+.container .formulario-registro.entrada{
     position: absolute;
     transform: translateX(400px);
+    transition: none;
+}
+.container.active .formulario-registro.entrada{
+    transition: transform .18s ease;
+    transform: translateX(0);
 }
 .input{
     position: relative;
@@ -142,7 +156,7 @@ header{
     font-size: 1em;
     font-weight: 500;
     pointer-events: none;
-    transition: 0.5s;
+    transition: .5s;
 }
 .input input:focus~label,
 .input input:valid~label{
@@ -164,21 +178,21 @@ header{
     font-size: 1.2em;
     line-height: 57px;
 }
-.lembrar{
+.caixaMarcar{
     font-size: .9em;
     font-weight: 500;
     margin: -15px 0 15px;
     display: flex;
     justify-content: space-between;
 }
-.lembrar label input{
+.caixaMarcar label input{
     accent-color: #93F205;
     margin-right: 3px;
 }
-.lembrar a{
+.caixaMarcar a{
     text-decoration: none;
 }
-lembrar a:hover{
+.caixaMarcar a:hover{
     text-decoration: underline;
 }
 .btn{
@@ -196,17 +210,17 @@ lembrar a:hover{
 .btn:hover{
     animation: lsdBackground 1s infinite;
 }
-.registro-login{
+.efetuarRegistro{
     font-size: .9em;
     text-align: center;
     font-weight: 500;
     margin: 25px 0 10px;
 }
-.registro-login p a {
+.efetuarRegistro p a {
     text-decoration: none;
     font-weight: 600;
 }
-.registro-login p a:hover{
+.efetuarRegistro p a:hover{
     text-decoration: underline;
 }
 .icon-fechar{
@@ -217,7 +231,6 @@ lembrar a:hover{
     height: 45px;
     background: #93F205;
     animation: lsdBackground 2s infinite;
-    font-size: 2em;
     display: flex;
     justify-content: center;
     align-items: center;
